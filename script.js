@@ -1,4 +1,4 @@
-const url = 'http://echo.slor.net:25562/messages';
+const url = 'https://apitestingapp1.herokuapp.com/messages/';
 var username = "";
 
 $(document).keypress(function(e) {
