@@ -1,5 +1,6 @@
 const url = 'https://apitestingapp1.herokuapp.com/messages/';
 var username = "";
+var old_messages = "";
 
 $(document).keypress(function(e) {
     if (e.keyCode === 13) {
@@ -21,18 +22,30 @@ function sendMessage() {
     console.log("message sent");
 }
 
+function arrayEquals(a, b) {
+    return Array.isArray(a) &&
+        Array.isArray(b) &&
+        a.length === b.length &&
+        a.every((val, index) => val === b[index]);
+}
+
 function getMessages() {
-    /*$.ajax({
+    $.ajax({
         url: url,
         contentType: "application/json",
         method: 'GET',
         success: function(data) {
-            for (const e in data) {
-                console.log("done")
-            }
+          if (!_.isEqual(old_messages, data)) {
+              for(e in data){
+                  console.log(data[e]);
+              }
+            old_messages = data;
+          }
+          else {
+            console.log('same');
+          }
         }
-    });*/
-    console.log("got messages");
+    });
 }
 
 function setUsername() {
@@ -46,5 +59,5 @@ $(document).ready(function() {
     getMessages();
     const message_interval = setInterval(function() {
         getMessages()
-    }, 5000);
+    }, 2000);
 });
