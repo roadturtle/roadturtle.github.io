@@ -234,4 +234,25 @@ a:hover {
     border-radius: 15px;
     outline: 0;
     padding: 22px 18px;
+  }
+#messages_div {
+  top: 10%;
+  left: 5%;
+  right: 5%;
+  width: 90%;
+  height: 75%;
+  scrollbar-width: none;
+  position: absolute;
+  z-index: 3000;
+  overflow-y: scroll;
+  
+}
+
+#messages_div::-webkit-scrollbar {
+    display: none; /* for Chrome, Safari, and Opera */
+}
+
+#messages_div p {
+  text-align: left;
+  color: red;
 }

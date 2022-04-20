@@ -36,13 +36,16 @@ function getMessages() {
         method: 'GET',
         success: function(data) {
           if (!_.isEqual(old_messages, data)) {
+              old_messages = JSON.stringify(old_messages);
               for(e in data){
-                  console.log(data[e]);
+                  if(!old_messages.includes(JSON.stringify(data[e]))){
+                      var message = $("<p></p>").text(`${JSON.stringify(data[e]['author'])}: ${JSON.stringify(data[e]['text'])}`);
+                      $("#messages_div").append(message);
+                  }
               }
+            let objDiv = document.getElementById("messages_div");
+objDiv.scrollTop = objDiv.scrollHeight;
             old_messages = data;
-          }
-          else {
-            console.log('same');
           }
         }
     });
@@ -52,11 +55,16 @@ function setUsername() {
     username = $("#user_input").val();
     console.log(username);
     $(".username-input").css("display", 'none');
+    $("#messages_div").css("display", 'block');
+    let objDiv = document.getElementById("messages_div");
+objDiv.scrollTop = objDiv.scrollHeight;
+            old_messages = data;
 }
 
 $(document).ready(function() {
     console.log("ready");
     getMessages();
+    $("#messages_div").css("display", 'none');
     const message_interval = setInterval(function() {
         getMessages()
     }, 2000);
