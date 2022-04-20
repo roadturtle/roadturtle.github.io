@@ -53,7 +53,6 @@ objDiv.scrollTop = objDiv.scrollHeight;
 
 function setUsername() {
     username = $("#user_input").val();
-    console.log(username);
     $(".username-input").css("display", 'none');
     $("#messages_div").css("display", 'block');
     let objDiv = document.getElementById("messages_div");
