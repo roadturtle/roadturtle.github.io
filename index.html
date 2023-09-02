@@ -17,7 +17,7 @@
         <div class="container-user">
             <div class="container__item-user">
                 <form class="user-form">
-                    <input onkeypress="if(event.key == 'Enter') {setUsername()}" type="text" id="user_input" class="form__field" placeholder="Enter Username" />
+                    <input onkeypress="if(event.key === 'Enter') {setUsername()}" type="text" id="user_input" class="form__field" placeholder="Enter Username" />
                     <button type="button" onclick="setUsername()" class="btn btn--primary btn--inside uppercase" id="confirm_button">Confirm</button>
                 </form>
             </div>
@@ -28,7 +28,7 @@
     <nav class="navbar navbar-inverse">
         <div class="container-fluid">
             <div class="navbar-header">
-                <a class="navbar-brand" href="index.html">LNHS Message Room</a>
+                <a class="navbar-brand" href="index.html">Message Room</a>
             </div>
             <ul class="nav navbar-nav navbar-right">
                 <li><a href="signup.html"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
@@ -40,7 +40,7 @@
     <div class="container">
         <div class="container__item">
             <form class="form" autocomplete="off">
-                <input onkeypress="if(event.key == 'Enter') {sendMessage()}" type="text" id="message_input" class="form__field" placeholder="Enter Message" />
+                <input onkeypress="if(event.key === 'Enter') {sendMessage()}" type="text" id="message_input" class="form__field" placeholder="Enter Message" />
                 <button type="button" onclick="sendMessage()" class="btn btn--primary btn--inside uppercase" id="send_button">Send</button>
             </form>
         </div>
